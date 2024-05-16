@@ -1,0 +1,40 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+#Grass {
+  width: 1320px;
+  height: 1320px;
+  background-image: url(/src/assets/grass.png);
+  background-size: 120px;
+  background-repeat: repeat;
+  margin: auto;
+}
+
+#Pikachu {
+  background-image: url(/src/assets/pikachu.png);
+  width: 120px;
+  height: 120px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+@keyframes jump {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.jump {
+  transform-origin: 50% 50%;
+  animation: jump 0.3s linear alternate 1;
+}
