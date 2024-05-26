@@ -8,7 +8,7 @@ class DateUtil {
     const minutes = date.getMinutes();
     const meridiemText = hour < 12 ? "오전" : "오후";
 
-    return `${meridiemText} ${hour > 12 ? hour - 12 : hour}:${minutes}`;
+    return `${meridiemText} ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? "0" + minutes : minutes}`;
   }
 
   static getDateString(value, token) {

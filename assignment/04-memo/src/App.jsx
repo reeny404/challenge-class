@@ -2,33 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import "./App.css";
 import DateUtil from "./utils/DateUtil";
-
-const initialList = [
-  {
-    id: Math.random(),
-    created: "2024-05-27 2:38",
-  },
-  {
-    id: Math.random(),
-    created: "2024-05-24 23:23",
-    content: "안뇽",
-  },
-  {
-    id: Math.random(),
-    created: "2024-05-21 15:23",
-    content: "오늘은 놀이동산 가는 날 룰류 랄랴",
-  },
-  {
-    id: Math.random(),
-    created: "2024-03-24 09:23",
-    content: "1번 메모 손들어! 2번 메모 손들어 으악!",
-  },
-];
+import LocalStorage, { KEY } from "./utils/LocalStorage";
 
 const DEFAULT_CONTENT = "새로운 메모";
+const initialData = JSON.parse(LocalStorage.get(KEY.MEMO_LIST) ?? []);
 
 function App() {
-  const [memoList, setMemoList] = useState(initialList);
+  const [memoList, setMemoList] = useState(initialData);
   const [selectedMemo, setSelectedMemo] = useState(memoList.at(0));
   const refTextarea = useRef(null);
 
@@ -57,6 +37,10 @@ function App() {
   useEffect(() => {
     refTextarea.current.focus();
   }, [selectedMemo]);
+
+  useEffect(() => {
+    LocalStorage.set(KEY.MEMO_LIST, JSON.stringify(memoList));
+  }, [memoList]);
 
   return (
     <Main>
