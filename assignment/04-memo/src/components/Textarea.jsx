@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 
 export function Textarea({ value = "", handleChange }) {
   const [text, setText] = useState(value);
-  const refTextarea = useRef(null);
+  const ref = useRef(null);
 
   useEffect(() => {
     setText(value);
-    refTextarea.current.focus();
+    ref.current.focus();
   }, [value]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function Textarea({ value = "", handleChange }) {
   return (
     <textarea
       autoFocus
-      ref={refTextarea}
+      ref={ref}
       value={text}
       onChange={(e) => setText(e.target.value)}
     />
