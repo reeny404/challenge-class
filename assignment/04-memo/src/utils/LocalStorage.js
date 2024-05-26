@@ -1,5 +1,5 @@
 export const KEY = {
-  MEMO: "challenage-assign/04-memo/list",
+  MEMO_LIST: "challenage-assign/04-memo/list",
 };
 
 class LocalStorage {

@@ -8,15 +8,21 @@ class DateUtil {
     const minutes = date.getMinutes();
     const meridiemText = hour < 12 ? "오전" : "오후";
 
-    return `${meridiemText} ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? "0" + minutes : minutes}`;
+    return `${meridiemText} ${hour > 12 ? hour - 12 : hour}:${
+      minutes < 10 ? "0" + minutes : minutes
+    }`;
   }
 
   static getDateString(value, token) {
     const date = this.#parseDate(value);
     if (token) {
-      return `${date.getFullYear()}${token} ${date.getMonth() + 1}${token} ${date.getDate()}`;
+      return `${date.getFullYear()}${token} ${
+        date.getMonth() + 1
+      }${token} ${date.getDate()}`;
     }
-    return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+    return `${date.getFullYear()}년 ${
+      date.getMonth() + 1
+    }월 ${date.getDate()}일`;
   }
 
   static isToday(value) {
