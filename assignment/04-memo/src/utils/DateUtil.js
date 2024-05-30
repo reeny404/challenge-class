@@ -15,14 +15,15 @@ class DateUtil {
 
   static getDateString(value, token) {
     const date = this.#parseDate(value);
+
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
     if (token) {
-      return `${date.getFullYear()}${token} ${
-        date.getMonth() + 1
-      }${token} ${date.getDate()}`;
+      return `${year}${token} ${month}${token} ${day}`;
     }
-    return `${date.getFullYear()}년 ${
-      date.getMonth() + 1
-    }월 ${date.getDate()}일`;
+    return `${year}년 ${month}월 ${day}일`;
   }
 
   static isToday(value) {
