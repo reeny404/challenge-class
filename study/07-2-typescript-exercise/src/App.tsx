@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CounterButton from "./components/Counter/CounterButton";
 import CounterDisplay from "./components/Counter/CounterDisplay";
+import ModalControls from "./components/Modal/ModalControls";
 
 function App() {
   const [count, setCount] = useState<number>(5);
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <>
+      <h2>1. Counter 만들기</h2>
       <CounterDisplay value={count} />
       <input
         value={unit}
@@ -25,6 +27,11 @@ function App() {
         <CounterButton onClick={increament}>[-]</CounterButton>
         <CounterButton onClick={dencreament}>[+]</CounterButton>
       </div>
+
+      <hr />
+
+      <h2>2. 모달 만들기</h2>
+      <ModalControls />
     </>
   );
 }
