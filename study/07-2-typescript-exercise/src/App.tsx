@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import CounterButton from "./CounterButton";
+import CounterDisplay from "./CounterDisplay";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState<number>(5);
+  const [unit, setUnit] = useState<number>(1);
+
+  const increament = () => setCount(count + 1);
+  const dencreament = () => setCount(count - 1);
+  const handleChangeUnit: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setUnit(Number(e.target.value));
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <CounterDisplay value={count} />
+      <input
+        value={unit}
+        onChange={handleChangeUnit}
+        type="number"
+        placeholder="이곳에 숫자를 넣어"
+      />
+      <div className="flex">
+        <CounterButton onClick={increament}>[-]</CounterButton>
+        <CounterButton onClick={dencreament}>[+]</CounterButton>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
