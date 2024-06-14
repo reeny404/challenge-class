@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CounterButton from "./components/CounterButton";
-import CounterDisplay from "./components/CounterDisplay";
+import CounterButton from "./components/Counter/CounterButton";
+import CounterDisplay from "./components/Counter/CounterDisplay";
 
 function App() {
   const [count, setCount] = useState<number>(5);
