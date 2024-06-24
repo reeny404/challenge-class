@@ -5,7 +5,7 @@
 ## tailwindcss 동적 css 도와주는
 - https://cva.style/docs
 
-##
+## cva 사용해보기
 ```
   // 첫번째 인자<array | string> : 조합과 무관한 class
   // 두번째 인자 : 조합
@@ -27,3 +27,17 @@
     }
   );
 ```
+
+## props를 표현하는 방법
+방법1)
+type ButtonProps = {} & ButtonVariant &
+   DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+
+방법2)
+type ButtonProps = {} & ButtonVariant & ComponentProps<"button">;
+
+## 하나의 컴포넌트에서 button, Link 두가지를 쓰고 싶을 때 
+![alt text](/public/image.png)
+
+## Q&A 여러개의 cva를 사용할 때 어떻게 쓰나요?
+![alt text](/public/image2.png)
