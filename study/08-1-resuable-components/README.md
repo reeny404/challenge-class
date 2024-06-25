@@ -37,7 +37,7 @@ type ButtonProps = {} & ButtonVariant &
 type ButtonProps = {} & ButtonVariant & ComponentProps<"button">;
 
 ## 하나의 컴포넌트에서 button, Link 두가지를 쓰고 싶을 때 
-![alt text](/public/image.png)
+![alt text](public/image.png)
 
 ## Q&A 여러개의 cva를 사용할 때 어떻게 쓰나요?
-![alt text](/public/image2.png)
+![alt text](public/image2.png)
